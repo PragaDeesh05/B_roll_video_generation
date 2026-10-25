@@ -1,0 +1,76 @@
+# Environment
+.env
+*.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+.venv/
+venv/
+env/
+
+# Storage (generated content — do NOT commit)
+storage/uploads/
+storage/jobs/
+storage/test_jobs/
+storage/cache/
+storage/uploads/
+storage/fallback_library/
+storage/*.db
+storage/*.db-shm
+storage/*.db-wal
+storage/*.wav
+storage/*.mp3
+storage/*.mp4
+backend/storage/uploads/
+backend/storage/jobs/
+backend/storage/test_jobs/
+backend/storage/cache/
+backend/storage/fallback_library/
+backend/storage/*.db
+backend/storage/*.db-shm
+backend/storage/*.db-wal
+*.db
+*.db-shm
+*.db-wal
+
+# Generated media and credentials
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm
+*.key
+*.pem
+frontend/certs/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test artefacts
+.pytest_cache/
+.coverage
+htmlcov/

@@ -1,0 +1,50 @@
+/* App.css - Master Layout & Glassmorphism Core Wrappers */
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bg-base);
+  background-image: var(--bg-base-radial);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* App container */
+.app-viewport {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Subtle background ambient glow orbs */
+.app-viewport::before {
+  content: '';
+  position: fixed;
+  top: -150px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(99, 102, 241, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app-viewport::after {
+  content: '';
+  position: fixed;
+  bottom: -200px;
+  left: 10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, rgba(139, 92, 246, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}

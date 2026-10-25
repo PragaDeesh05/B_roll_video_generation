@@ -1,0 +1,235 @@
+/* Global Persistent Swap Banner */
+.global-swap-card {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  width: 480px;
+  max-width: calc(100vw - 48px);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  backdrop-filter: var(--glass-blur-lg);
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(16, 185, 129, 0.2);
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: slideUpSwap 0.35s ease-out;
+}
+
+@keyframes slideUpSwap {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Green Processing / Uploading Theme */
+.global-swap-card.processing {
+  background: rgba(2, 44, 34, 0.88);
+  border: 1px solid rgba(16, 185, 129, 0.6);
+  color: #a7f3d0;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 24px rgba(16, 185, 129, 0.35);
+}
+
+/* Green Success Theme */
+.global-swap-card.success {
+  background: rgba(6, 78, 59, 0.9);
+  border: 1px solid rgba(52, 211, 153, 0.7);
+  color: #ecfdf5;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 24px rgba(52, 211, 153, 0.4);
+}
+
+/* Red Failed Theme */
+.global-swap-card.failed {
+  background: rgba(69, 10, 10, 0.9);
+  border: 1px solid rgba(239, 68, 68, 0.7);
+  color: #fee2e2;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 24px rgba(239, 68, 68, 0.4);
+}
+
+.swap-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.swap-card-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.swap-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(16, 185, 129, 0.3);
+  border-top-color: #34d399;
+  border-radius: 50%;
+  animation: swapSpin 0.75s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes swapSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.swap-icon {
+  font-size: 1.25rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.swap-card-title-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.swap-card-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.swap-card-subtitle {
+  font-size: 0.78rem;
+  opacity: 0.9;
+  margin-top: 2px;
+}
+
+.swap-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.swap-btn-toggle {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 4px 8px;
+  font-size: 0.72rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.swap-btn-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.swap-btn-action {
+  background: #10b981;
+  border: none;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 6px 12px;
+  font-size: 0.78rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.swap-btn-action:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+.swap-btn-close {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0.75;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+.swap-btn-close:hover {
+  opacity: 1;
+}
+
+/* Details Box */
+.swap-details-box {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.swap-details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+
+.swap-tag-active {
+  font-size: 0.68rem;
+  background: rgba(16, 185, 129, 0.25);
+  color: #34d399;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.swap-details-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.swap-detail-item {
+  font-size: 0.74rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.35;
+  color: #cbd5e1;
+}
+
+.swap-detail-item .detail-dot {
+  color: #34d399;
+  font-weight: 700;
+}
+
+.swap-location-path {
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  font-size: 0.72rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+}
+
+.swap-location-path code {
+  color: #6ee7b7;
+  font-family: monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

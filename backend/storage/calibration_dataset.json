@@ -1,0 +1,62 @@
+[
+  {
+    "example_id": "calib_001",
+    "category": "strongly_relevant",
+    "narration_text": "The savings balance increases steadily over time through regular contributions.",
+    "candidate_description": "Animated digital banking interface displaying a rising balance chart with recurring deposit timestamps.",
+    "raw_clip_score": 0.29,
+    "verification_score": 4.8,
+    "human_rating": 5.0,
+    "human_notes": "Perfect match for narration and gradual compounding mechanism."
+  },
+  {
+    "example_id": "calib_002",
+    "category": "partially_relevant",
+    "narration_text": "Compound returns accelerate financial security.",
+    "candidate_description": "A financial advisor pointing at a general business growth bar chart on a whiteboard.",
+    "raw_clip_score": 0.24,
+    "verification_score": 3.4,
+    "human_rating": 3.5,
+    "human_notes": "Plausible business context, but lacks direct compounding representation."
+  },
+  {
+    "example_id": "calib_003",
+    "category": "keyword_related_semantically_wrong",
+    "narration_text": "Enterprises migrate vital business workloads to the cloud.",
+    "candidate_description": "Sunny summer sky filled with white cumulus clouds over green fields.",
+    "raw_clip_score": 0.28,
+    "verification_score": 1.2,
+    "human_rating": 1.0,
+    "human_notes": "Literal sky cloud keyword overlap; completely irrelevant to cloud computing."
+  },
+  {
+    "example_id": "calib_004",
+    "category": "visually_contradictory",
+    "narration_text": "Disciplined budgeting protects families from unexpected debt.",
+    "candidate_description": "Person joyously spending lavish cash stacks at a luxury fashion boutique.",
+    "raw_clip_score": 0.23,
+    "verification_score": 1.0,
+    "human_rating": 1.0,
+    "human_notes": "Contradicts the core theme of conservative debt prevention."
+  },
+  {
+    "example_id": "calib_005",
+    "category": "static_frame_requires_action",
+    "narration_text": "A coin is dropped into the container every morning.",
+    "candidate_description": "Completely motionless photograph of a coin resting on a wooden table next to a jar.",
+    "raw_clip_score": 0.26,
+    "verification_score": 2.2,
+    "human_rating": 2.0,
+    "human_notes": "Static image fails to show the required dropping action."
+  },
+  {
+    "example_id": "calib_006",
+    "category": "abstract_concept_handled_well",
+    "narration_text": "Economic resilience empowers long-term confidence.",
+    "candidate_description": "Confident homeowner looking forward steadily through a sunlit window with calm posture.",
+    "raw_clip_score": 0.21,
+    "verification_score": 4.1,
+    "human_rating": 4.5,
+    "human_notes": "Contextual visual expression of confidence and resilience."
+  }
+]

@@ -1,0 +1,63 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: incubrix-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+  minio:
+    image: cgr.dev/chainguard/minio:latest
+    container_name: incubrix-minio
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: incubrix-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - USE_MINIO=true
+      - MINIO_ENDPOINT=minio:9000
+      - MINIO_ACCESS_KEY=minioadmin
+      - MINIO_SECRET_KEY=minioadmin
+      - MINIO_BUCKET=incubrix-broll
+      - MINIO_SECURE=false
+      - REDIS_URL=redis://redis:6379/0
+      - GOOGLE_CLOUD_PROJECT=incubrix-project1
+      - GOOGLE_APPLICATION_CREDENTIALS=/root/.config/gcloud/application_default_credentials.json
+      - PIXABAY_API_KEY=${PIXABAY_API_KEY}
+      - MIN_RELEVANCE_THRESHOLD=3.0
+      - ENABLE_AI_IMAGE_FALLBACK=true
+    volumes:
+      - ./backend/storage:/app/storage
+      - ${APPDATA}/gcloud/application_default_credentials.json:/root/.config/gcloud/application_default_credentials.json:ro
+    depends_on:
+      - minio
+      - redis
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: incubrix-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+volumes:
+  minio_data:

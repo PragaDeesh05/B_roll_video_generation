@@ -1,0 +1,244 @@
+/* JobProgress.css - Glassmorphism Progress Component */
+
+.progress-container {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--glass-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  box-shadow: var(--glass-shadow), var(--glass-inner-highlight);
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--glass-border-subtle);
+  padding-bottom: 16px;
+}
+
+.job-id {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: monospace;
+  display: block;
+  margin-top: 4px;
+}
+
+.status-badge {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  backdrop-filter: var(--glass-blur-sm);
+}
+
+.status-queued, .status-processing { 
+  background: rgba(99, 102, 241, 0.16); 
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  color: #a5b4fc; 
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.25);
+}
+.status-completed { 
+  background: var(--status-success-bg); 
+  border: 1px solid var(--status-success-border);
+  color: #6ee7b7; 
+  box-shadow: var(--status-success-glow);
+}
+.status-failed { 
+  background: var(--status-error-bg); 
+  border: 1px solid var(--status-error-border);
+  color: #fca5a5; 
+  box-shadow: var(--status-error-glow);
+}
+
+.progress-section {
+  margin-bottom: 24px;
+}
+
+.progress-bar-container {
+  height: 9px;
+  background: var(--glass-inner-hover);
+  border: 1px solid var(--glass-border-subtle);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--accent-gradient);
+  border-radius: var(--radius-full);
+  transition: width 0.4s ease;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+.progress-bar-fill.failed {
+  background: var(--status-error);
+  box-shadow: 0 0 10px var(--status-error);
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stage-text {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.progress-pct {
+  font-weight: 800;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  text-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+}
+
+.stage-detail {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  margin-top: 6px;
+}
+
+.pipeline {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  background: var(--glass-inner);
+  border: 1px solid var(--glass-border);
+  padding: 14px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 22px;
+}
+
+.pipeline-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: var(--text-subtle);
+  text-align: center;
+}
+
+.pipeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--glass-inner-hover);
+  border: 1px solid var(--glass-border);
+  transition: all 0.3s;
+}
+
+.pipeline-step.done .pipeline-dot {
+  background: var(--status-success);
+  border-color: transparent;
+  box-shadow: 0 0 8px var(--status-success);
+}
+
+.pipeline-step.active .pipeline-dot {
+  background: var(--accent-gradient);
+  border-color: transparent;
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.6);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 8px rgba(99, 102, 241, 0.6); }
+  50% { transform: scale(1.15); box-shadow: 0 0 16px rgba(99, 102, 241, 0.9); }
+}
+
+.pipeline-step.active {
+  color: #a5b4fc;
+  font-weight: 600;
+}
+
+.pipeline-step.done {
+  color: #6ee7b7;
+  font-weight: 500;
+}
+
+.error-card {
+  border-color: var(--status-error);
+}
+
+.error-message {
+  color: #fca5a5;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.error-detail {
+  margin-top: 12px;
+}
+
+.error-detail summary {
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.error-detail pre {
+  margin-top: 8px;
+  padding: 12px;
+  background: rgba(5, 8, 16, 0.85);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  overflow: auto;
+  max-height: 200px;
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--glass-inner);
+  border: 1px solid var(--glass-border);
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+}
+
+.meta-key {
+  font-size: 0.74rem;
+  color: var(--text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.meta-val {
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.action-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.action-row .btn {
+  flex: 1;
+  justify-content: center;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+}
